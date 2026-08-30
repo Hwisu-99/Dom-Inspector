@@ -30,37 +30,60 @@ When you ask an LLM to fix or restyle a specific element ("make this button bigg
 
 ## Example
 
-Clicking a button like this:
+While inspect mode is active, hovering over an element outlines it and shows a floating label with its tag, id, and size:
+
+![Inspecting the "전체 그래프 보기" button on a knowledge-graph page](docs/example.png)
+
+Clicking that button:
 
 ```html
-<button id="submit-btn" class="btn btn-primary large">Submit</button>
+<button class="graph-btn" id="btnFullGraph">전체 그래프 보기</button>
 ```
 
 copies something like this to your clipboard:
 
 ```
 🔍 Inspected Element
-Tag: <button id="submit-btn">
-Selector: #submit-btn
-DOM Path: form.checkout-form > div.form-actions > button#submit-btn.btn.btn-primary
-Classes: btn btn-primary large
-Attributes: id="submit-btn", class="btn btn-primary large", type="submit"
-Text: "Submit"
-Rect: 120x44 at (860, 512)
+Tag: <button id="btnFullGraph">
+Selector: #btnFullGraph
+DOM Path: button#btnFullGraph
+Classes: graph-btn
+Attributes: class="graph-btn", id="btnFullGraph"
+Text: "전체 그래프 보기"
+Rect: 110×25 at (1461, 164)
 Computed Style:
-  display: inline-flex
+  display: block
   position: static
-  width: 120px
-  height: 44px
-  color: rgb(255, 255, 255)
-  backgroundColor: rgb(37, 99, 235)
-  border: 1px solid rgb(37, 99, 235)
-  borderRadius: 8px
-  fontSize: 16px
-  fontWeight: 600
+  top: auto
+  right: auto
+  bottom: auto
+  left: auto
+  width: 109.708px
+  height: 25.3333px
+  margin: 0px
+  padding: 4px 10px
+  flex-direction: row
+  justify-content: normal
+  align-items: normal
+  gap: normal
+  grid-template-columns: none
+  grid-template-rows: none
+  color: rgb(217, 119, 87)
+  background-color: rgb(255, 255, 255)
+  border: 1.33333px solid rgb(217, 119, 87)
+  border-radius: 6px
+  font-size: 11.52px
+  font-weight: 600
+  line-height: normal
+  letter-spacing: normal
+  box-shadow: none
+  opacity: 1
+  z-index: auto
+  overflow: visible
   cursor: pointer
+  transition: border-color 0.15s, color 0.15s, background 0.15s
 Outer HTML:
-<button id="submit-btn" class="btn btn-primary large" type="submit">Submit</button>
+<button class="graph-btn" id="btnFullGraph">전체 그래프 보기</button>
 ```
 
 That block is enough for an LLM to know exactly which element you mean, what it currently looks like, and where it sits in the page — no back-and-forth needed.
